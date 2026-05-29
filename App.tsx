@@ -1,59 +1,60 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image } from "react-native";
+import "react-native-gesture-handler";
 
-const nombre: string = "Yahir Orduña";
-const carrera: string = "Ing. en Sistemas Computacionales";
-const cuatrimestre: number = 9;
-const promedio: number = 8.5;
-const titulado: boolean = false;
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Text } from "react-native";
+
+import HomeScreen from "./screens/HomeScreen";
+import PerfilScreen from "./screens/PerfilScreen";
+import MateriasScreen from "./screens/MateriasScreen";
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      {/* Imagen desde internet */}
-      <Image
-        source={{
-          uri: "https://cdn-icons-png.flaticon.com/512/25/25231.png",
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={{
+          tabBarActiveTintColor: "#3b82f6",
+          tabBarInactiveTintColor: "#999",
+          tabBarStyle: {
+            backgroundColor: "#fff",
+            borderTopWidth: 1,
+            borderTopColor: "#e5e5e5",
+            height: 60,
+            paddingBottom: 8,
+          },
+          headerStyle: {
+            backgroundColor: "#3b82f6",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
         }}
-        style={styles.avatar}
-      />
-
-      <Text style={styles.titulo}>{nombre}</Text>
-      <Text style={styles.subtitulo}>{carrera}</Text>
-      <Text style={styles.dato}>Cuatrimestre: {cuatrimestre}</Text>
-      <Text style={styles.dato}>Promedio: {promedio}</Text>
-      <Text style={styles.dato}>Titulado: {String(titulado)}</Text>
-
-      <StatusBar style="auto" />
-    </View>
+      >
+        <Tab.Screen
+          name="Inicio"
+          component={HomeScreen}
+          options={{
+            tabBarIcon: () => <Text style={{ fontSize: 20 }}>🏠</Text>,
+          }}
+        />
+        <Tab.Screen
+          name="Perfil"
+          component={PerfilScreen}
+          options={{
+            tabBarIcon: () => <Text style={{ fontSize: 20 }}>👤</Text>,
+          }}
+        />
+        <Tab.Screen
+          name="Materias"
+          component={MateriasScreen}
+          options={{
+            tabBarIcon: () => <Text style={{ fontSize: 20 }}>📚</Text>,
+          }}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#8dabd8",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  avatar: {
-    width: 150,
-    height: 150,
-    borderRadius: 35, // la mitad del width/height = círculo
-    marginBottom: 16,
-  },
-  titulo: {
-    fontSize: 22,
-    fontWeight: "bold",
-    marginBottom: 4,
-  },
-  subtitulo: {
-    fontSize: 14,
-    color: "#ffffff",
-    marginBottom: 16,
-  },
-  dato: {
-    fontSize: 16,
-    marginBottom: 6,
-  },
-});
