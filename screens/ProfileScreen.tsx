@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 
 const nombre1: string = "Yahir Orduña";
-const nombre2: string = "Roberto Carlos Rangel";
+const nombre2: string = "Roberto Carlos Rangel ";
 const nombre3: string = "Gerardo Joshua Piña";
 const carrera: string = "Ingenieros en Sistemas Computacionales";
 const titulado: boolean = false;

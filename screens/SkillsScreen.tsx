@@ -5,7 +5,7 @@ const skills: string[] = [
   "JavaScript",
   "Git Hub",
   "Python",
-  "SQLServer",
+  "SQLServer ",
   "mysql",
   "React Native",
 ];

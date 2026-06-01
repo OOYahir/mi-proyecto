@@ -48,7 +48,7 @@ const ProjectScreen = () => {
           Datos del Proyecto (Campo por Campo)
         </Text>
         <Text style={styles.field}>
-          <Text style={styles.fieldName}>Nombre:</Text> {proyecto1.nombre}
+          <Text style={styles.fieldName}>Nombre: </Text> {proyecto1.nombre}
         </Text>
         <Text style={styles.field}>
           <Text style={styles.fieldName}>Versión:</Text> {proyecto1.version}
