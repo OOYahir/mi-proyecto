@@ -4,10 +4,11 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Text } from "react-native";
 
-import HomeScreen from "./screens/HomeScreen";
-import PerfilScreen from "./screens/PerfilScreen";
-import MateriasScreen from "./screens/MateriasScreen";
-
+//import HomeScreen from "./screens/HomeScreen";
+import ProfileScreen from "./screens/ProfileScreen";
+//import MateriasScreen from "./screens/MateriasScreen";
+import SkillsScreen from "./screens/SkillsScreen";
+import ProjectScreen from "./screens/ProjectScreen";
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -33,25 +34,39 @@ export default function App() {
           },
         }}
       >
-        <Tab.Screen
+        {/* <Tab.Screen
           name="Inicio"
           component={HomeScreen}
           options={{
             tabBarIcon: () => <Text style={{ fontSize: 20 }}>🏠</Text>,
           }}
-        />
+        /> */}
         <Tab.Screen
           name="Perfil"
-          component={PerfilScreen}
+          component={ProfileScreen}
           options={{
             tabBarIcon: () => <Text style={{ fontSize: 20 }}>👤</Text>,
           }}
         />
-        <Tab.Screen
+        {/* <Tab.Screen
           name="Materias"
           component={MateriasScreen}
           options={{
             tabBarIcon: () => <Text style={{ fontSize: 20 }}>📚</Text>,
+          }}
+        /> */}
+        <Tab.Screen
+          name="Habilidades"
+          component={SkillsScreen}
+          options={{
+            tabBarIcon: () => <Text style={{ fontSize: 20 }}>📚</Text>,
+          }}
+        />
+        <Tab.Screen
+          name="Proyecto"
+          component={ProjectScreen}
+          options={{
+            tabBarIcon: () => <Text style={{ fontSize: 20 }}>💼</Text>,
           }}
         />
       </Tab.Navigator>
